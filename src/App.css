@@ -1,0 +1,10 @@
+.information-container{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+    width: 1000px;
+}
+
+.swagger-ui .wrapper{
+    width: 55%; !important;
+}

@@ -1,0 +1,301 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Novi Educational Backend",
+    "version": "0.0.1",
+    "description": "Deze backend is gebouwd door NOVI en mag alleen worden gebruikt voor opleidings-doeleinden. Wanneer studenten de Frontend leerlijn volgen en een backend nodig hebben voor hun eindopdracht kunnen zij er voor kiezen deze backend te gebruiken.\n\nDeze backend ondersteunt het registreren, inloggen en het aanpassen van gebruikers. Ook kan je informatie opslaan in de applicatie (zodat iedereen dit kan zien denk aan een lijst die een admin kan toevoegen of een mededeling vanuit je applicatie).\n\nDe database ondersteunt ook het uploaden en downloaden van foto's of pdf bestanden. Deze bestanden worden opgeslagen in de database en kunnen worden opgehaald door de gebruiker.\n\nDe volgende bestandstypes worden ondersteund:\n\n- JPG/JPEG\n- PNG\n- GIF\n- PDF.\n\nHieronder staan alle request die je kan doen met je eigen applicatie.\n\nLet op: je moet gebruik maken van het volgende domein: `https://api.datavortex.nl/{applicationName}`.\nIn dit domein verander je alleen de applicationName met de door jou gekozen naam die je hierboven hebt ingevoerd."
+  },
+  "servers": [
+    {
+      "url": "https://api.datavortex.nl/{applicationName}"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Application",
+        "description": "Opperations to manage the application"
+    },
+    {
+      "name": "Users",
+      "description": "Operations related to user management"
+    },
+    {
+      "name": "Photos",
+      "description": "Operations related to photo upload and retrieval"
+    }
+  ],
+  "paths": {
+    "/info": {
+      "get": {
+        "tags": [
+          "Application"
+        ],
+        "summary": "Get application information",
+        "operationId": "getApplicationInfo",
+        "responses": {
+          "200": {
+            "description": "Application information retrieved successfully"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Application"
+        ],
+        "summary": "Update application information",
+        "operationId": "updateApplicationInfo",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Application information updated successfully"
+          }
+        }
+      }
+    },
+    "/users": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Create a new user",
+        "operationId": "createUser",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "info": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created successfully"
+          }
+        }
+      }
+    },
+    "/users/{username}": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user information by username",
+        "operationId": "getUserByUsername",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User information retrieved successfully"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Update user information by username",
+        "operationId": "updateUserByUsername",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "info": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User information updated successfully"
+          }
+        }
+      }
+    },
+    "/users/{username}/info": {
+      "get": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Get user information by username",
+        "operationId": "getUserInfoByUsername",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User information retrieved successfully"
+          }
+        }
+      }
+    },
+    "/users/authenticate": {
+      "post": {
+        "tags": [
+          "Users"
+        ],
+        "summary": "Authenticate and get JWT token",
+        "operationId": "authenticateUser",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "JWT token received"
+          }
+        }
+      }
+    },
+    "/users/{username}/upload": {
+      "post": {
+        "tags": [
+          "Photos"
+        ],
+        "summary": "Upload a photo for a user",
+        "operationId": "uploadPhotoByUsername",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {
+                    "type": "string",
+                    "format": "jpeg/png"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Photo uploaded successfully"
+          }
+        }
+      }
+    },
+    "/users/{username}/download": {
+      "get": {
+        "tags": [
+          "Photos"
+        ],
+        "summary": "Download a user's photo",
+        "operationId": "downloadPhotoByUsername",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Photo downloaded successfully"
+          }
+        }
+      }
+    }
+  }
+}

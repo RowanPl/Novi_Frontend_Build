@@ -1,0 +1,29 @@
+/* Customize the appearance of GET operation summary methods */
+.opblock.opblock-get .opblock-summary-method {
+    background-color: #43A047; /* Green */
+    color: #fff; /* White text color */
+}
+
+/* Customize the appearance of POST operation summary methods */
+.opblock.opblock-post .opblock-summary-method {
+    background-color: #1976D2; /* Blue */
+    color: #fff; /* White text color */
+}
+
+/* Customize the appearance of PUT operation summary methods */
+.opblock.opblock-put .opblock-summary-method {
+    background-color: #FFC107; /* Amber */
+    color: #000; /* Black text color */
+}
+
+/* Customize the appearance of DELETE operation summary methods */
+.opblock.opblock-delete .opblock-summary-method {
+    background-color: #E53935; /* Red */
+    color: #fff; /* White text color */
+}
+
+/* Customize the appearance of other operation summary methods */
+.opblock .opblock-summary-method {
+    background-color: #9E9E9E; /* Gray */
+    color: #000; /* Black text color */
+}
