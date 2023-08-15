@@ -66,11 +66,6 @@
         ],
         "summary": "Update application information",
         "operationId": "updateApplicationInfo",
-        "security": [
-          {
-            "bearerAuth": []
-          }
-        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -152,8 +147,13 @@
         "tags": [
           "Users"
         ],
-        "summary": "Get user information by username",
+        "summary": "Get user  by username",
         "operationId": "getUserByUsername",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "username",
@@ -224,6 +224,11 @@
         ],
         "summary": "Get user information by username",
         "operationId": "getUserInfoByUsername",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "username",
@@ -320,6 +325,11 @@
         ],
         "summary": "Download a user's photo",
         "operationId": "downloadPhotoByUsername",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "parameters": [
           {
             "name": "username",
