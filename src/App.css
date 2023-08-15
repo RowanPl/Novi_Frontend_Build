@@ -1,10 +1,170 @@
-.information-container{
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-    width: 1000px;
+/*Zorgt dat de informatie wat smaller staat! (Niet veranderen)*/
+.swagger-ui .wrapper {
+    width: 55%;
+!important;
 }
 
-.swagger-ui .wrapper{
-    width: 55%; !important;
+/*Achtergrond kleur*/
+body{
+    background-color: rgb(30, 30, 30);
+    color: white;
+}
+/*Het kopje met Servers wordt hier aangesproken*/
+.swagger-ui .scheme-container {
+ background-color: var(--dark-gray);
+    width: 53%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+.swagger-ui .scheme-container .schemes{
+    margin: 0
+}
+
+
+/*Variabelen kleuren*/
+:root {
+    --get-color-light: rgb(216, 255, 193);
+    --get-color-dark: #44C767;
+    --post-color-light: #ffe9c8;
+    --post-color-dark: #FFAC33;
+    --put-color-light: #b2c8f8;
+    --put-color-dark: #3D7EFF;
+    --delete-color-light: rgb(255, 193, 193);
+    --delete-color-dark: #FF4D4D;
+    --dark-gray: #373737;
+
+}
+
+/*Get Request kleur*/
+.swagger-ui .opblock.opblock-get .opblock-summary-method {
+    background-color: var(--get-color-dark);
+}
+.swagger-ui .opblock.opblock-get .opblock-summary {
+    background-color: var(--get-color-light);
+}
+.swagger-ui .opblock.opblock-get .opblock-summary {
+    border-color: var(--get-color-light);
+}
+.swagger-ui .opblock.opblock-get {
+    border-color: var(--get-color-light);
+    background: var(--get-color-light);
+}
+.swagger-ui .opblock.opblock-get .tab-header .tab-item.active h4 span::after {
+    background-color: var(--get-color-dark);
+}
+
+/*Post Request kleur*/
+.swagger-ui .opblock.opblock-post .opblock-summary-method {
+    background-color: var(--post-color-dark);
+}
+.swagger-ui .opblock.opblock-post .opblock-summary {
+    background-color: var(--post-color-light);
+}
+.swagger-ui .opblock.opblock-post .opblock-summary {
+    border-color: var(--post-color-light);
+}
+.swagger-ui .opblock.opblock-post {
+    border-color: var(--post-color-light);
+    background: var(--post-color-light);
+}
+.swagger-ui .opblock.opblock-post .tab-header .tab-item.active h4 span::after {
+    background-color: var(--post-color-dark);
+}
+
+/*Put Request kleur*/
+
+.swagger-ui .opblock.opblock-put .opblock-summary-method {
+    background-color: var(--put-color-dark);
+    color: white;
+
+}
+.swagger-ui .opblock.opblock-put .opblock-summary {
+    background-color: var(--put-color-light);
+
+}
+.swagger-ui .opblock.opblock-put .opblock-summary {
+    border-color: var(--put-color-light);
+
+}
+.swagger-ui .opblock.opblock-put {
+    border-color: var(--put-color-light);
+    background: var(--put-color-light);
+}
+.swagger-ui .opblock.opblock-put .tab-header .tab-item.active h4 span::after {
+    background-color: var(--put-color-dark);
+}
+
+/*Delete Request kleur*/
+
+.swagger-ui .opblock.opblock-delete .opblock-summary-method {
+    background-color: var(--delete-color-dark);
+}
+.swagger-ui .opblock.opblock-delete .opblock-summary {
+    background-color: var(--delete-color-light);
+}
+.swagger-ui .opblock.opblock-delete .opblock-summary {
+    border-color: var(--delete-color-light);
+}
+.swagger-ui .opblock.opblock-delete {
+    border-color: var(--delete-color-light);
+    background: var(--delete-color-light);
+}
+.swagger-ui .opblock.opblock-delete .tab-header .tab-item.active h4 span::after {
+    background-color: var(--delete-color-dark);
+}
+
+/*De kleur van de header bovenin (NOVI EDUCATIONAL BACKEND*/
+.swagger-ui .info .title{
+    color: white;
+    text-align: center;
+}
+/*Tekst kleur van het info blok*/
+.swagger-ui .info li, .swagger-ui .info p, .swagger-ui .info table{
+    color: white;
+}
+/*De tekst kleur van de titel in een blok klein*/
+.swagger-ui .opblock-tag small{
+    color: white;
+}
+/*De tekst kleur van de */
+.swagger-ui .opblock-tag{
+    color: white;
+    background-color: var(--dark-gray);
+}
+
+
+/*DE REST VAN DE CSS*/
+
+.App {
+margin: 50px 0;
+    text-align: center;
+}
+.App label{
+
+    display: flex;
+    width: 20%;
+    margin: 3px auto;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tooltip {
+    background-color: #ff9999;
+    color: #ffffff;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: none;
+    width: calc(20% - 5px);
+    margin: 0 auto;
+}
+
+.tooltip-button {
+    cursor: not-allowed;
+}
+
+.tooltip-button:hover + .tooltip {
+    display: block;
+
 }

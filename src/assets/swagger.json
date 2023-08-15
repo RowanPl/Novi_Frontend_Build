@@ -3,17 +3,20 @@
   "info": {
     "title": "Novi Educational Backend",
     "version": "0.0.1",
-    "description": "Deze backend is gebouwd door NOVI en mag alleen worden gebruikt voor opleidings-doeleinden. Wanneer studenten de Frontend leerlijn volgen en een backend nodig hebben voor hun eindopdracht kunnen zij er voor kiezen deze backend te gebruiken.\n\nDeze backend ondersteunt het registreren, inloggen en het aanpassen van gebruikers. Ook kan je informatie opslaan in de applicatie (zodat iedereen dit kan zien denk aan een lijst die een admin kan toevoegen of een mededeling vanuit je applicatie).\n\nDe database ondersteunt ook het uploaden en downloaden van foto's of pdf bestanden. Deze bestanden worden opgeslagen in de database en kunnen worden opgehaald door de gebruiker.\n\nDe volgende bestandstypes worden ondersteund:\n\n- JPG/JPEG\n- PNG\n- GIF\n- PDF.\n\nHieronder staan alle request die je kan doen met je eigen applicatie.\n\nLet op: je moet gebruik maken van het volgende domein: `https://api.datavortex.nl/{applicationName}`.\nIn dit domein verander je alleen de applicationName met de door jou gekozen naam die je hierboven hebt ingevoerd."
+    "description": "Deze backend is gebouwd door NOVI en mag alleen worden gebruikt voor opleidings-doeleinden. Wanneer studenten de Frontend leerlijn volgen en een backend nodig hebben voor hun eindopdracht kunnen zij er voor kiezen deze backend te gebruiken.\n\nDeze backend ondersteunt het registreren, inloggen en het aanpassen van gebruikers. Ook kan je informatie opslaan in de applicatie (zodat iedereen dit kan zien denk aan een lijst die een admin kan toevoegen of een mededeling vanuit je applicatie).\n\nDe database ondersteunt ook het uploaden en downloaden van foto's of pdf bestanden. Deze bestanden worden opgeslagen in de database en kunnen worden opgehaald door de gebruiker.\n\nDe volgende bestandstypes worden ondersteund:\n\n- JPG/JPEG\n- PNG\n- GIF\n- PDF\n\nHieronder staan alle request die je kan doen met je eigen applicatie.\n\nLet op: je moet gebruik maken van het volgende domein: `https://api.datavortex.nl/{applicationName}`.\nIn dit domein verander je alleen de applicationName met de door jou gekozen naam die je hierboven hebt ingevoerd."
   },
   "servers": [
     {
-      "url": "https://api.datavortex.nl/{applicationName}"
+      "url": "https://api.datavortex.nl/testapp"
+    },
+    {
+      "url": ""
     }
   ],
   "tags": [
     {
       "name": "Application",
-        "description": "Opperations to manage the application"
+      "description": "Opperations to manage the application"
     },
     {
       "name": "Users",
@@ -24,6 +27,20 @@
       "description": "Operations related to photo upload and retrieval"
     }
   ],
+  "components": {
+    "securitySchemes": {
+      "JWT": {
+        "type": "http",
+        "scheme": "bearer"
+      },
+      "X-Api-Key": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-Api-Key",
+        "description": "De key is: testapp:jy6fdHpph44ajMCTfHpZ"
+      }
+    }
+  },
   "paths": {
     "/info": {
       "get": {
@@ -32,9 +49,14 @@
         ],
         "summary": "Get application information",
         "operationId": "getApplicationInfo",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "responses": {
           "200": {
-            "description": "Application information retrieved successfully"
+            "description": "Application information: "
           }
         }
       },
@@ -44,6 +66,11 @@
         ],
         "summary": "Update application information",
         "operationId": "updateApplicationInfo",
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -51,10 +78,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "description": {
+                  "info": {
                     "type": "string"
                   }
                 }
@@ -64,7 +88,14 @@
         },
         "responses": {
           "200": {
-            "description": "Application information updated successfully"
+            "description": "Application information updated successfully",
+            "x-code-samples": {
+              "application/json": {
+                "value": {
+                  "message": "Application information updated successfully"
+                }
+              }
+            }
           }
         }
       }
@@ -76,6 +107,11 @@
         ],
         "summary": "Create a new user",
         "operationId": "createUser",
+        "security": [
+          {
+            "X-Api-Key": []
+          }
+        ],
         "requestBody": {
           "required": true,
           "content": {
@@ -83,17 +119,21 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": {
-                    "type": "string"
+                  "username": {
+                    "type": "string",
+                    "example": "testuser"
                   },
                   "email": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "testuser@gmail.com"
                   },
                   "password": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "testpassword"
                   },
                   "info": {
-                    "type": "string"
+                    "type": "string",
+                    "example": "testinfo"
                   }
                 }
               }
@@ -299,3 +339,5 @@
     }
   }
 }
+
+
