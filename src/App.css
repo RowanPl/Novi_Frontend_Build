@@ -132,39 +132,8 @@ body{
     color: white;
     background-color: var(--dark-gray);
 }
-
-
-/*DE REST VAN DE CSS*/
-
-.App {
-margin: 50px 0;
-    text-align: center;
-}
-.App label{
-
-    display: flex;
-    width: 20%;
-    margin: 3px auto;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.tooltip {
-    background-color: #ff9999;
-    color: #ffffff;
-    padding: 5px;
-    border-radius: 5px;
-    font-size: 14px;
-    display: none;
-    width: calc(20% - 5px);
-    margin: 0 auto;
-}
-
-.tooltip-button {
-    cursor: not-allowed;
-}
-
-.tooltip-button:hover + .tooltip {
-    display: block;
-
+.swagger-ui .markdown code, .swagger-ui .renderedMarkdown code{
+    color: #89bf04;
+    background-color: #373737;
+    border-radius: 10px;
 }

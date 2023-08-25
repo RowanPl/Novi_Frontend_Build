@@ -1,0 +1,95 @@
+@import "https://unpkg.com/open-props";
+
+.create-form{
+    width: 20%;
+    height: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #373737;
+    border-radius: 7px;
+    border: double 10px #959494;
+
+}
+.create-h2{
+    margin-top: 50px;
+}
+
+.App {
+    margin: 50px 0;
+    text-align: center;
+}
+.App label{
+    display: flex;
+    margin: 3px auto;
+    justify-content: center;
+    flex-direction: column;
+    width: 60%;
+}
+
+input{
+    width: 100%;
+    border-radius: 5px;
+    border-color: #4d4d4d;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #2a2a2a;
+    color: white;
+}
+
+.tooltip {
+    background-color: #ff9999;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1vw;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+    margin-top: 10px;
+}
+
+.disabled {
+    cursor: not-allowed; /* Changed to pointer for clickable elements */
+}
+
+.tooltip-button:hover + .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+.button-text{
+text-align: center;
+    margin-top: -25%;
+    text-justify: auto;
+}
+
+.create-button{
+    width: 40%;
+    text-justify: auto;
+    text-align: center;
+    border-radius: 5px;
+    border-color: #4d4d4d;
+    padding: 10px;
+    margin: 30px 0;
+    background-color: #2a2a2a;
+    color: white;
+    cursor: pointer;
+    box-shadow: white 0px 0px 10px;
+}
+.create-text{
+    color: white;
+    font-size: 1vw;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.tooltip-button .disabled {
+    cursor: not-allowed;
+}
+
+

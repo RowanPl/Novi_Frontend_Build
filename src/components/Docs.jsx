@@ -1,16 +1,23 @@
-import React, {useEffect} from "react";
+// eslint-disable-next-line no-unused-vars
+import React, {useEffect, useState} from "react";
 import SwaggerUI from "swagger-ui-react";
 import "swagger-ui-react/swagger-ui.css";
 import swagger from "../assets/swagger.json";
 import "../App.css"; // Import your custom CSS
 
-function Docs(applicationName, updateClick) {
+function Docs() {
+
+    const [applicationName, setApplicationName] = useState( localStorage.getItem("applicationName"));
+
+    if (applicationName === null) {
+        setApplicationName("")
+    }
+
 
     useEffect(() => {
-        swagger.servers[1] = {url: "https://api.datavortex.nl/" + applicationName.applicationName};
-        console.log(swagger.servers[1].url)
-        console.log(updateClick.updateClick)
-    }, [applicationName.applicationName, updateClick.updateClick]);
+        swagger.servers[1] = {url: "https://api.datavortex.nl/" + applicationName};
+
+    }, [applicationName]);
 
 
     return (
