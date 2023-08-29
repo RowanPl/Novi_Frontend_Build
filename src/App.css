@@ -1,22 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,300;1,400&display=swap');
+
 /*Zorgt dat de informatie wat smaller staat! (Niet veranderen)*/
-.swagger-ui .wrapper {
-    width: 55%;
-!important;
+/*.swagger-ui .wrapper {*/
+/*    width: 55% !important;*/
+/*}*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 /*Achtergrond kleur*/
 body{
+    font-family: 'Poppins', sans-serif;
     background-color: rgb(30, 30, 30);
     color: white;
 }
+
+h1 {
+    font-size: 48px;
+    margin: 32px 0 20px 0;
+}
+
+h2 {
+    margin: 0 0 20px 0;
+    align-self: flex-start;
+}
+
+p {
+    margin: 20px 0;
+}
+
+ul  {
+    padding: 0 0 0 32px;
+}
+
+input, button, select, textarea {
+    font-family: inherit;
+}
+
+a {
+    font-weight: bold;
+    color: #cd7040;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
 /*Het kopje met Servers wordt hier aangesproken*/
 .swagger-ui .scheme-container {
  background-color: var(--dark-gray);
-    width: 53%;
     margin-left: auto;
     margin-right: auto;
     color: white;
 }
+
+/*zonder deze wordt het serversblok te groot*/
+.swagger-ui .wrapper {
+    padding: 0;
+}
+
+.swagger-ui .scheme-container {
+    padding: 20px;
+}
+
 .swagger-ui .scheme-container .schemes{
     margin: 0
 }
@@ -118,22 +168,38 @@ body{
 .swagger-ui .info .title{
     color: white;
     text-align: center;
+    font-family: inherit;
 }
 /*Tekst kleur van het info blok*/
 .swagger-ui .info li, .swagger-ui .info p, .swagger-ui .info table{
-    color: white;
+    color: #ffffff;
 }
 /*De tekst kleur van de titel in een blok klein*/
 .swagger-ui .opblock-tag small{
     color: white;
 }
-/*De tekst kleur van de */
+/*De tekst kleur van de  */
 .swagger-ui .opblock-tag{
-    color: white;
+    color: #f6f6f6;
     background-color: var(--dark-gray);
 }
+/*De kleur van de tekst in de code blokken*/
 .swagger-ui .markdown code, .swagger-ui .renderedMarkdown code{
     color: #89bf04;
     background-color: #373737;
     border-radius: 10px;
+    padding: 0 10px;
+}
+/*Kleur van alle tekst headers*/
+.swagger-ui .info h1, .swagger-ui .info h2, .swagger-ui .info h3, .swagger-ui .info h4, .swagger-ui .info h5{
+    color: #ffffff;
+}
+.swagger-ui .markdown pre > code, .swagger-ui .renderedMarkdown pre > code{
+    width: 15%;
+    color: white;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
 }

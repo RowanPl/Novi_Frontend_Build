@@ -8,7 +8,7 @@ function Navbar() {
 
     return (
         <div className={"fixed"}>
-        <div className={"navbar"}>
+        <nav className={"navbar"}>
             <NavLink to={"/"} className={"default"}>
             <img className="logo" src={logo} alt="Logo of Novi Hogeschool"/>
             </NavLink>
@@ -21,7 +21,7 @@ function Navbar() {
                 </li>
             </ul>
 
-        </div>
+        </nav>
         </div>
     )
 }

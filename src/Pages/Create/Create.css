@@ -1,9 +1,10 @@
 @import "https://unpkg.com/open-props";
 
 .create-form{
-    width: 20%;
+    width: 30%;
     height: 70%;
     margin-left: auto;
+    padding: 0 20px 70px 20px;
     margin-right: auto;
     display: flex;
     flex-direction: column;
@@ -27,17 +28,17 @@
     margin: 3px auto;
     justify-content: center;
     flex-direction: column;
-    width: 60%;
+    width: 100%;
 }
 
-input{
+.inputfield{
     width: 100%;
     border-radius: 5px;
     border-color: #4d4d4d;
     padding: 10px;
     margin: 10px 0;
     background-color: #2a2a2a;
-    color: white;
+    color: #ffffff;
 }
 
 .tooltip {
@@ -48,38 +49,36 @@ input{
     font-weight: bold;
     margin-bottom: 10px;
     font-size: 1vw;
-    opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s, visibility 0.3s;
-    margin-top: 10px;
+    opacity: 0;
+    margin-top: -90px;
+    z-index: 1;
 }
 
 .disabled {
-    cursor: not-allowed; /* Changed to pointer for clickable elements */
+    cursor: not-allowed;
 }
 
 .tooltip-button:hover + .tooltip {
     opacity: 1;
     visibility: visible;
 }
-.button-text{
-text-align: center;
-    margin-top: -25%;
-    text-justify: auto;
-}
+
 
 .create-button{
     width: 40%;
     text-justify: auto;
     text-align: center;
     border-radius: 5px;
-    border-color: #4d4d4d;
+    border: none;
     padding: 10px;
-    margin: 30px 0;
-    background-color: #2a2a2a;
+    background-color: #db6b34;
     color: white;
     cursor: pointer;
-    box-shadow: white 0px 0px 10px;
+    /*box-shadow: #cd7040 0 0 10px;*/
+    align-self: flex-end;
+    margin: 40px 0 0 0;
 }
 .create-text{
     color: white;
@@ -91,5 +90,6 @@ text-align: center;
 .tooltip-button .disabled {
     cursor: not-allowed;
 }
+
 
 

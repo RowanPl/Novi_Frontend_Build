@@ -1,9 +1,12 @@
 import axios from "axios";
+import {set, useForm} from "react-hook-form";
 // eslint-disable-next-line no-unused-vars
 import React, {useEffect, useState} from "react";
 import "./Create.css"
 
-function Create(){
+function Create() {
+    const {register, handleSubmit, watch, errors} = useForm();
+    const onSubmit = data => console.log(data);
 
     const [applicationName, setApplicationName] = useState('');
     const [email, setEmail] = useState('');
@@ -32,50 +35,54 @@ function Create(){
     };
     useEffect(() => {
         if (email.includes("@novi-education.nl")) {
+            console.log("email is valid")
             setDisabled(false)
-        }
-        else {
+        } else {
+            console.log("email is invalid")
             setDisabled(true)
         }
     }, [email]);
-    return(
+    return (
         <>
             <div className="App">
-                <form className={"create-form"}>
+                <form className={"create-form"} onSubmit={handleSubmit(onSubmit)}>
+
                     <h2 className={"create-h2"}>Create a new application </h2>
+
+
                     <label>
+
+                        <label>
+                            <input
+                                type="text"
+                                value={applicationName}
+                                onChange={(e) => setApplicationName(e.target.value)}
+                                placeholder={"applicationName"}
+                                className="inputfield"
+                            />
+                        </label>
+
+
                         <input type="email"
                                value={email}
                                onChange={(e) => setEmail(e.target.value)}
                                placeholder={"novi-education email"}
-
+                               className="inputfield"
                         />
-                    </label>
 
-                    <label>
-                        <input
-                            type="text"
-                            value={applicationName}
-                            onChange={(e) => setApplicationName(e.target.value)}
-                            placeholder={"applicationName"}
-                        />
                     </label>
-
                     <button
                         disabled={disabled}
                         className={"create-button" + (disabled ? " tooltip-button disabled" : "")}
                         type="button"
                         onClick={handleButtonClick}
                     >
-                     Create
+                        Create
                     </button>
+                    <div className="tooltip">
+                        Please enter a valid novi-education email.
+                    </div>
 
-
-                    {disabled && (
-                        <div className="tooltip">
-                            Please enter a valid novi-education email.
-                        </div>
-                    )}
                 </form>
             </div>
         </>
