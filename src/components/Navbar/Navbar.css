@@ -40,7 +40,7 @@ nav a:hover{
     margin-left: 10px;
 }
 
-.active{
+nav .active{
     border-bottom: #db6b34 1px solid;
 }
 .default{

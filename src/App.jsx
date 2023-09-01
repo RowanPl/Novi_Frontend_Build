@@ -11,12 +11,11 @@ function App() {
         <>
             <Navbar/>
             <Routes>
-
                 <Route path="/" Component={Main}/>
                 <Route path="/Create" Component={Create}/>
             </Routes>
             <footer>
-                Heb je vragen? Stuur Rowan dan een berichtje op Teams, hij helpt je graag verder!
+                Heb je vragen? Stuur <span className="footerText">Rowan</span> dan een berichtje op <span className="footerText">Teams</span>, hij helpt je graag verder!
             </footer>
         </>
     );

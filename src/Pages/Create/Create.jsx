@@ -1,92 +1,105 @@
 import axios from "axios";
-import {set, useForm} from "react-hook-form";
-// eslint-disable-next-line no-unused-vars
-import React, {useEffect, useState} from "react";
-import "./Create.css"
+import {Controller, useForm} from "react-hook-form";
+import React from "react"; // Import React
+import "./Create.css";
+import SuccesModal from "../../components/Modal/SuccesModal/SuccesModal.jsx";
 
 function Create() {
-    const {register, handleSubmit, watch, errors} = useForm();
-    const onSubmit = data => console.log(data);
+    const {handleSubmit, control, register, formState: {errors}} = useForm(); // Destructure control
+    const [modalIsOpen, setIsOpen] = React.useState(false);
 
-    const [applicationName, setApplicationName] = useState('');
-    const [email, setEmail] = useState('');
-    const [updateClick, setUpdateClick] = useState(1);
-    const [disabled, setDisabled] = useState(true);
-    const handleButtonClick = async (e) => {
-        e.preventDefault();
+    const onSubmit = async (data) => {
+        const {applicationName, email} = data;
+
         try {
-
             const result = await axios.post('https://api.datavortex.nl/applications', {
-                    name: applicationName,
-                    email: email,
-                }
-            );
+                name: applicationName,
+                email: email,
+            });
+
             if (result.status === 200) {
-                alert("Application is aangemaakt, Let op de mail kan in de spam terecht komen. \n \n Je kan nu onder servers jouw URL vinden.")
+                setIsOpen(true);
                 localStorage.setItem("applicationName", applicationName);
-                window.location.href = "/";
             }
-            console.log(result)
+            console.log(result);
         } catch (error) {
             console.error(error);
         }
-
-        setUpdateClick(updateClick + 1);
     };
-    useEffect(() => {
-        if (email.includes("@novi-education.nl")) {
-            console.log("email is valid")
-            setDisabled(false)
-        } else {
-            console.log("email is invalid")
-            setDisabled(true)
-        }
-    }, [email]);
+
     return (
-        <>
-            <div className="App">
-                <form className={"create-form"} onSubmit={handleSubmit(onSubmit)}>
-
-                    <h2 className={"create-h2"}>Create a new application </h2>
+        <div className="App">
 
 
-                    <label>
+            {modalIsOpen && (
+                <SuccesModal closeModal={setIsOpen}/>
+            )}
 
-                        <label>
+
+            <form className={"create-form"} onSubmit={handleSubmit(onSubmit)}>
+                <h2 className={"create-h2"}>Create a new application</h2>
+
+
+                <Controller
+                    name="applicationName"
+                    control={control}
+                    render={({field}) => (
+                        <>
                             <input
                                 type="text"
-                                value={applicationName}
-                                onChange={(e) => setApplicationName(e.target.value)}
-                                placeholder={"applicationName"}
-                                className="inputfield"
+                                {...field}
+                                placeholder={"application name"}
+                                className={`inputfield ${errors.applicationName ? 'red-border' : ''}`}
                             />
-                        </label>
+                            {errors.applicationName &&
+                                <p className="error-message">{errors.applicationName.message}</p>}
+                        </>
+                    )}
+                    rules={{
+                        required: "This field is required",
+                        pattern: {
+                            value: /^[a-zA-Z]+$/,
+                            message: "Please enter a valid application without any special characters or spaces",
+                        },
+                        minLength: {
+                        value: 3,
+                        message: "Application name must be at least 3 characters long",
+                    },
+                    }}
+                />
 
+                <Controller
+                    name="email"
+                    control={control}
+                    render={({field}) => (
+                        <>
+                            <input
+                                type="email"
+                                {...field}
+                                placeholder={"novi-education email"}
+                                className={`inputfield ${errors.email ? 'red-border' : ''}`}
+                            />
+                            {errors.email && <p className="error-message">{errors.email.message}</p>}
+                        </>
+                    )}
+                    rules={{
+                        required: "This field is required",
+                        pattern: {
+                            value: /^[\w-.]+@novi-education\.nl$/,
+                            message: "Please enter a valid novi-education.nl email",
+                        },
+                    }}
+                />
 
-                        <input type="email"
-                               value={email}
-                               onChange={(e) => setEmail(e.target.value)}
-                               placeholder={"novi-education email"}
-                               className="inputfield"
-                        />
-
-                    </label>
-                    <button
-                        disabled={disabled}
-                        className={"create-button" + (disabled ? " tooltip-button disabled" : "")}
-                        type="button"
-                        onClick={handleButtonClick}
-                    >
-                        Create
-                    </button>
-                    <div className="tooltip">
-                        Please enter a valid novi-education email.
-                    </div>
-
-                </form>
-            </div>
-        </>
-    )
+                <button
+                    className={"create-button" + (errors.email ? " tooltip-button disabled" : "")}
+                    type="submit"
+                >
+                    Create
+                </button>
+            </form>
+        </div>
+    );
 }
 
 export default Create;

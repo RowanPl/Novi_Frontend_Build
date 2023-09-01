@@ -1,5 +1,21 @@
-.text-section-container {
+.hero-section-container {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
+}
+
+.text-section-container  code{
+    color: #cd7040;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.text-section-container  em{
+    color: #cd7040;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.footerText{
+    color: #cd7040;
 }
