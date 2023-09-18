@@ -1,0 +1,51 @@
+
+.hero-section-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+}
+
+.text-section-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.text-section-container code {
+    color: #cd7040;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.text-section-container em {
+    color: #cd7040;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+video{
+    width: 100%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+    padding: 50px;
+    box-shadow: rgba(77, 77, 77, 0.56) 0 0 120px -40px;
+}
+.instructie-button{
+    background-color: transparent;
+    border: #cd7040 2px solid;
+    color: #cd7040;
+    padding: 5px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+    cursor: pointer;
+    align-self: flex-end;
+}
+.instructie-button:hover{
+    background-color: #cd7040;
+    color: white;
+    transition: 0.5s;
+
+}
