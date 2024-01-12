@@ -13,13 +13,13 @@ function Create() {
 
         try {
             const result = await axios.post('https://api.datavortex.nl/applications', {
-                name: applicationName,
+                name: applicationName.toLowerCase(),
                 email: email,
             });
 
             if (result.status === 200) {
                 setIsOpen(true);
-                localStorage.setItem("applicationName", applicationName);
+                localStorage.setItem("applicationName", applicationName.toLowerCase());
             }
             console.log(result);
         } catch (error) {

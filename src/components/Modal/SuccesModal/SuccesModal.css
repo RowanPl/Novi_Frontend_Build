@@ -11,7 +11,7 @@
 
 /* ------------------------------- 1. Global Styles -------------------------------- */
 
-.modalBackground{
+.modalBackground {
     width: 100vw;
     height: 100vh;
     z-index: 2;
@@ -22,7 +22,7 @@
     align-items: center;
 }
 
-.modalContainer{
+.modalContainer {
     width: 30%;
     background-color: #313131;
     border-radius: 7px;
@@ -33,23 +33,24 @@
     padding-bottom: 30px;
 }
 
-.modalButton{
+.modalButton {
     text-justify: auto;
     text-align: center;
     border-radius: 5px;
     border: none;
- padding-right: 10px;
+    padding-right: 10px;
     cursor: pointer;
     align-self: flex-end;
 }
-.modalButton .closeModal{
+
+.modalButton .closeModal {
     background-color: transparent;
     border: none;
     color: #db6b34;
     font-size: 40px;
 }
 
-.modalBtn{
+.modalBtn {
 
     text-justify: auto;
     text-align: center;
@@ -64,6 +65,7 @@
     align-self: flex-end;
     margin: 40px 0 0 0;
 }
+
 /* ------------------------------- 2. Typography ----------------------------------- */
 
 

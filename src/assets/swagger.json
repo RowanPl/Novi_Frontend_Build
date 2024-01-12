@@ -30,7 +30,7 @@
   ],
   "components": {
     "securitySchemes": {
-      "bearerAuth": {
+      "JWT": {
         "type": "http",
         "scheme": "bearer",
         "bearerFormat": "JWT"
@@ -47,7 +47,7 @@
         "operationId": "getApplicationInfo",
         "security": [
           {
-            "bearerAuth": []
+            "JWT": []
           }
         ],
         "responses": {
@@ -125,6 +125,18 @@
                   "info": {
                     "type": "string",
                     "example": "testinfo"
+                  },
+                  "authorities": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                        "properties": {
+                            "authority": {
+                            "type": "string",
+                            "example": "USER"
+                            }
+                        }
+                    }
                   }
                 }
               }
@@ -147,7 +159,7 @@
         "operationId": "getUserByUsername",
         "security": [
           {
-            "bearerAuth": []
+            "JWT": []
           }
         ],
         "parameters": [
@@ -223,7 +235,7 @@
         "operationId": "getUserInfoByUsername",
         "security": [
           {
-            "bearerAuth": []
+            "JWT": []
           }
         ],
         "parameters": [
@@ -327,7 +339,7 @@
         "operationId": "downloadPhotoByUsername",
         "security": [
           {
-            "bearerAuth": []
+            "JWT": []
           }
         ],
         "parameters": [
