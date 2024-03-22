@@ -7,6 +7,7 @@ import SuccesModal from "../../components/Modal/SuccesModal/SuccesModal.jsx";
 function Create() {
     const {handleSubmit, control, register, formState: {errors}} = useForm(); // Destructure control
     const [modalIsOpen, setIsOpen] = React.useState(false);
+    const [error, setError] = React.useState(null);
 
     const onSubmit = async (data) => {
         const {applicationName, email} = data;
@@ -23,6 +24,8 @@ function Create() {
             }
             console.log(result);
         } catch (error) {
+            console.log(error)
+            setError(error);
             console.error(error);
         }
     };
@@ -90,7 +93,7 @@ function Create() {
                         },
                     }}
                 />
-
+                {error && <p className="error-message">{error.response.data.toString()}</p>}
                 <button
                     className={"create-button" + (errors.email ? " tooltip-button disabled" : "")}
                     type="submit"
