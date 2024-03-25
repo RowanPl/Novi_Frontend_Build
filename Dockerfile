@@ -1,8 +1,14 @@
-FROM node:alpine
-WORKDIR /app
+FROM node
+
+WORKDIR /frontend2.0
+
 COPY package.json .
-RUN npm i
+RUN npm install
+
 COPY . .
 
-EXPOSE 5173
-CMD ["npm", "run", "dev"]
+RUN npm run build
+
+EXPOSE 8080
+
+CMD [ "npm", "run", "preview" ]

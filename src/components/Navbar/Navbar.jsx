@@ -1,5 +1,5 @@
 import "./Navbar.css"
-import logo from "../../assets/Novi_logo_white (1).svg"
+import logo from "../../assets/Logo.svg?react"
 import {NavLink} from "react-router-dom";
 
 function Navbar() {

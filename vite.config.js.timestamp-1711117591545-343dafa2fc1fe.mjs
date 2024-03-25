@@ -1,0 +1,24 @@
+// vite.config.js
+import { defineConfig } from "file:///C:/Users/rowan/WebstormProjects/frontend2.0/node_modules/vite/dist/node/index.js";
+import react from "file:///C:/Users/rowan/WebstormProjects/frontend2.0/node_modules/@vitejs/plugin-react/dist/index.mjs";
+import svgLoader from "file:///C:/Users/rowan/WebstormProjects/frontend2.0/node_modules/vite-svg-loader/index.js";
+var vite_config_default = defineConfig({
+  plugins: [react(), svgLoader()],
+  build: {
+    chunkSizeWarningLimit: 2e3
+  },
+  server: {
+    watch: {
+      usePolling: true
+    },
+    host: true,
+    // needed for the Docker Container port mapping to work
+    strictPort: true,
+    port: 5173
+    // you can replace this port with any port
+  }
+});
+export {
+  vite_config_default as default
+};
+//# sourceMappingURL=data:application/json;base64,ewogICJ2ZXJzaW9uIjogMywKICAic291cmNlcyI6IFsidml0ZS5jb25maWcuanMiXSwKICAic291cmNlc0NvbnRlbnQiOiBbImNvbnN0IF9fdml0ZV9pbmplY3RlZF9vcmlnaW5hbF9kaXJuYW1lID0gXCJDOlxcXFxVc2Vyc1xcXFxyb3dhblxcXFxXZWJzdG9ybVByb2plY3RzXFxcXGZyb250ZW5kMi4wXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ZpbGVuYW1lID0gXCJDOlxcXFxVc2Vyc1xcXFxyb3dhblxcXFxXZWJzdG9ybVByb2plY3RzXFxcXGZyb250ZW5kMi4wXFxcXHZpdGUuY29uZmlnLmpzXCI7Y29uc3QgX192aXRlX2luamVjdGVkX29yaWdpbmFsX2ltcG9ydF9tZXRhX3VybCA9IFwiZmlsZTovLy9DOi9Vc2Vycy9yb3dhbi9XZWJzdG9ybVByb2plY3RzL2Zyb250ZW5kMi4wL3ZpdGUuY29uZmlnLmpzXCI7aW1wb3J0IHsgZGVmaW5lQ29uZmlnIH0gZnJvbSAndml0ZSdcclxuaW1wb3J0IHJlYWN0IGZyb20gJ0B2aXRlanMvcGx1Z2luLXJlYWN0J1xyXG5pbXBvcnQgc3ZnTG9hZGVyIGZyb20gXCJ2aXRlLXN2Zy1sb2FkZXJcIjtcclxuXHJcbi8vIGh0dHBzOi8vdml0ZWpzLmRldi9jb25maWcvXHJcbmV4cG9ydCBkZWZhdWx0IGRlZmluZUNvbmZpZyh7XHJcbiAgcGx1Z2luczogW3JlYWN0KCksIHN2Z0xvYWRlcigpXSxcclxuICBidWlsZDp7XHJcbiAgICBjaHVua1NpemVXYXJuaW5nTGltaXQ6IDIwMDAsXHJcbiAgfSxcclxuICBzZXJ2ZXI6IHtcclxuICAgIHdhdGNoOiB7XHJcbiAgICAgIHVzZVBvbGxpbmc6IHRydWUsXHJcbiAgICB9LFxyXG4gICAgaG9zdDogdHJ1ZSwgLy8gbmVlZGVkIGZvciB0aGUgRG9ja2VyIENvbnRhaW5lciBwb3J0IG1hcHBpbmcgdG8gd29ya1xyXG4gICAgc3RyaWN0UG9ydDogdHJ1ZSxcclxuICAgIHBvcnQ6IDUxNzMsIC8vIHlvdSBjYW4gcmVwbGFjZSB0aGlzIHBvcnQgd2l0aCBhbnkgcG9ydFxyXG4gIH1cclxufSkiXSwKICAibWFwcGluZ3MiOiAiO0FBQTZULFNBQVMsb0JBQW9CO0FBQzFWLE9BQU8sV0FBVztBQUNsQixPQUFPLGVBQWU7QUFHdEIsSUFBTyxzQkFBUSxhQUFhO0FBQUEsRUFDMUIsU0FBUyxDQUFDLE1BQU0sR0FBRyxVQUFVLENBQUM7QUFBQSxFQUM5QixPQUFNO0FBQUEsSUFDSix1QkFBdUI7QUFBQSxFQUN6QjtBQUFBLEVBQ0EsUUFBUTtBQUFBLElBQ04sT0FBTztBQUFBLE1BQ0wsWUFBWTtBQUFBLElBQ2Q7QUFBQSxJQUNBLE1BQU07QUFBQTtBQUFBLElBQ04sWUFBWTtBQUFBLElBQ1osTUFBTTtBQUFBO0FBQUEsRUFDUjtBQUNGLENBQUM7IiwKICAibmFtZXMiOiBbXQp9Cg==

@@ -22,11 +22,8 @@ function Create() {
                 setIsOpen(true);
                 localStorage.setItem("applicationName", applicationName.toLowerCase());
             }
-            console.log(result);
         } catch (error) {
-            console.log(error)
             setError(error);
-            console.error(error);
         }
     };
 
