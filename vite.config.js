@@ -4,7 +4,7 @@ import svgLoader from "vite-svg-loader";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: 'novi.datavortex.nl', // Replace <REPOSITORY_NAME> with your GitHub repository name
+  base: '/', // Replace <REPOSITORY_NAME> with your GitHub repository name
   plugins: [react(), svgLoader()],
   build:{
     chunkSizeWarningLimit: 2000,
